@@ -14,8 +14,10 @@ cd seerfar_wb_crawler
 python3 -m venv .venv
 . .venv/bin/activate
 pip install -r requirements.txt
-python -m playwright install chromium
+python -m playwright install --with-deps chromium
 ```
+
+`login` 和 `capture` 会打开可见浏览器。如果 Linux 没有图形界面，需要在桌面/VNC 环境中运行，或者配置 Xvfb 这类虚拟显示。只要 `storage/seerfar_state.json` 和 `config.yaml` 已经生成，后续 `run` 导出可以无头运行。
 
 如果没有登录状态，先让用户手动登录：
 
@@ -70,4 +72,3 @@ data/latest.json
 - 不要输出完整 Authorization。
 - 不要绕过验证码、套餐权限或网站限制。
 - 如果登录失效，让用户重新运行 `python crawler.py login`。
-
