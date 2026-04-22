@@ -1,0 +1,76 @@
+base_url: https://www.seerfar.cn
+admin_url: https://seerfar.cn/admin/index.html
+login_url: https://seerfar.cn/admin/sign-in.html
+storage_state: storage/seerfar_state.json
+client_language: zh-CN
+rate_limit_seconds: 1.5
+page_size: 50
+max_pages: 5
+
+# These targets are placeholders. For stable exports, run:
+# python crawler.py capture --seconds 180 --out config.yaml
+# Then use the captured config.yaml.
+targets:
+  - name: product_wb_search
+    page: 热销榜单选品
+    method: POST
+    path: /product-report/product/wb/search
+    required: true
+    pagination: true
+    body:
+      page:
+        pageNumber: 1
+        pageSize: 50
+        orders: []
+
+  - name: keyword_market_wb
+    page: 市场热词选品
+    method: POST
+    path: /keyword-report/market/search/WB
+    required: true
+    pagination: true
+    body:
+      platform: WB
+      page:
+        pageNumber: 1
+        pageSize: 50
+        orders: []
+
+  - name: category_search_wb
+    page: 热销类目选品
+    method: POST
+    path: /product-report/category/search/WB
+    required: true
+    pagination: true
+    body:
+      platform: WB
+      page:
+        pageNumber: 1
+        pageSize: 50
+        orders: []
+
+  - name: shop_hot_wb
+    page: 热销店铺选品
+    method: POST
+    path: /product-report/wb/shop/hot/report
+    required: true
+    pagination: true
+    body:
+      page:
+        pageNumber: 1
+        pageSize: 50
+        orders: []
+
+  - name: brand_hot_wb
+    page: 热销品牌选品
+    method: POST
+    path: /product-report/wb/brand/hot/report
+    required: true
+    pagination: true
+    body:
+      platform: WB
+      page:
+        pageNumber: 1
+        pageSize: 50
+        orders: []
+
