@@ -19,8 +19,12 @@ cd seerfar_wb_crawler
 python3 -m venv .venv
 . .venv/bin/activate
 pip install -r requirements.txt
-python -m playwright install chromium
+python -m playwright install --with-deps chromium
 ```
+
+If `--with-deps` asks for system permissions, run it with a Linux user that can install packages, or ask the server administrator to install Playwright's Chromium dependencies.
+
+The `login` and `capture` commands open a visible Chromium browser. If Hermes runs on a Linux server without a desktop display, run these commands in a desktop/VNC session, or configure the server with a virtual display such as Xvfb.
 
 ## First Login
 
@@ -77,4 +81,3 @@ python crawler.py status
 python crawler.py run --config config.yaml --target product_wb_search
 python crawler.py run --config config.yaml --max-pages 3
 ```
-
