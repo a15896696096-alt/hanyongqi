@@ -1,0 +1,8 @@
+.venv/
+storage/
+data/
+reports/
+config.yaml
+*.log
+__pycache__/
+
