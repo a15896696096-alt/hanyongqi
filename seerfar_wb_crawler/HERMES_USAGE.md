@@ -2,6 +2,17 @@
 
 When the user says that Seerfar data is needed, use this crawler instead of visually browsing the Seerfar pages.
 
+## Linux Runtime Note
+
+The crawler is a Python 3 + Playwright tool. Install dependencies with:
+
+```bash
+pip install -r requirements.txt
+python -m playwright install --with-deps chromium
+```
+
+The `login` and `capture` commands need a visible browser. If the Linux environment has no GUI, ask the user to run these commands in a desktop/VNC session or with a virtual display. After `storage/seerfar_state.json` and `config.yaml` exist, normal `run` exports can run headlessly.
+
 ## Standard Workflow
 
 1. Go to the crawler directory:
@@ -64,4 +75,3 @@ Do not output account passwords, full cookies, full tokens, or full Authorizatio
 - `shop_hot_wb`
 - `brand_hot_wb`
 - `keyword_shop_or_brand_wb`
-
